@@ -1,0 +1,17 @@
+<h1>Hello World 2</h1>
+
+<p>You asked the coach:</p>
+<%= params[:question] %>
+
+<p>He responds:</p>
+<% coach_answer = "test output" %>
+<% case
+when params[:question].downcase == "i am going to work" then coach_answer = "Great!"
+when params[:question].end_with?("?") then coach_answer = "Silly question, get dressed and go to work!"
+else coach_answer = "I don't care, get dressed and go to work!"
+end %>
+
+<%= coach_answer %>
+<br>
+
+<%= link_to "Ask another question!", "questions#questions", {:class => "btn btn-primary"}  %>
